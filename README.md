@@ -1,5 +1,8 @@
 
-[logo]:https://github.com/iamukasa/hot_not/blob/master/irvnin-01.png
+
+<div align='center'>
+<img src = 'irvnin-01.png' height="200px">
+</div>
 
 ## Building our own model
 
