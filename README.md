@@ -1,7 +1,7 @@
 
 
-<div align='center'>
-<img src = 'irvnin-01.png' height="200px">
+<div align='left'>
+<img src = 'irvnin-01.png' height="500px">
 </div>
 
 ## Building our own model
