@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "144028999356",
+    "firebase_url": "https://hotdognothotdog-54d38.firebaseio.com",
+    "project_id": "hotdognothotdog-54d38",
+    "storage_bucket": "hotdognothotdog-54d38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144028999356:android:09546560b4505797",
+        "android_client_info": {
+          "package_name": "com.google.firebase.samples.apps.mlkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144028999356-q0p99ici4llhv0jobre4pqoqqqgveq1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVE4Q71EJlgTYxVvitf1n9Y3mH7dEpYJ4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
