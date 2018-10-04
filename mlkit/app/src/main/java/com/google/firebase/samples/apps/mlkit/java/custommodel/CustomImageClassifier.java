@@ -181,7 +181,7 @@ public class CustomImageClassifier {
   }
 
   /** Writes Image data into a {@code ByteBuffer}. */
-  private synchronized ByteBuffer convertBitmapToByteBuffer(
+  public synchronized ByteBuffer convertBitmapToByteBuffer(
           ByteBuffer buffer, int width, int height) {
     ByteBuffer imgData =
         ByteBuffer.allocateDirect(
@@ -207,7 +207,7 @@ public class CustomImageClassifier {
   }
 
   /** Resizes image data from {@code ByteBuffer}. */
-  private Bitmap createResizedBitmap(ByteBuffer buffer, int width, int height) {
+  public Bitmap createResizedBitmap(ByteBuffer buffer, int width, int height) {
     YuvImage img = new YuvImage(buffer.array(), ImageFormat.NV21, width, height, null);
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     img.compressToJpeg(new Rect(0, 0, img.getWidth(), img.getHeight()), 50, out);
@@ -217,7 +217,7 @@ public class CustomImageClassifier {
   }
 
   /** Prints top-K labels, to be shown in UI as the results. */
-  private synchronized List<String> printTopKLabels(byte[][] labelProbArray) {
+  public synchronized List<String> printTopKLabels(byte[][] labelProbArray) {
     for (int i = 0; i < labelList.size(); ++i) {
       sortedLabels.add(
           new AbstractMap.SimpleEntry<>(labelList.get(i), (labelProbArray[0][i] & 0xff) / 255.0f));

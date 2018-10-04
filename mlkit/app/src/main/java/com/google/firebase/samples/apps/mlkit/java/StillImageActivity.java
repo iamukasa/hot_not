@@ -37,6 +37,7 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.common.annotation.KeepName;
 import com.google.firebase.ml.common.FirebaseMLException;
@@ -72,8 +73,8 @@ public final class StillImageActivity extends AppCompatActivity {
   private static final String KEY_SELECTED_SIZE =
       "com.googletest.firebase.ml.demo.KEY_SELECTED_SIZE";
 
-  private static final int REQUEST_IMAGE_CAPTURE = 1001;
-  private static final int REQUEST_CHOOSE_IMAGE = 1002;
+  private static final int REQUEST_IMAGE_CAPTURE = 224;
+  private static final int REQUEST_CHOOSE_IMAGE = 224;
 
   private Button getImageButton;
   private ImageView preview;
@@ -111,9 +112,11 @@ public final class StillImageActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()) {
                       case R.id.select_images_from_local:
                         startChooseImageIntentForResult();
+                        createImageProcessor();
                         return true;
                       case R.id.take_photo_using_camera:
                         startCameraIntentForResult();
+                        createImageProcessor();
                         return true;
                       default:
                         return false;
@@ -254,6 +257,8 @@ public final class StillImageActivity extends AppCompatActivity {
       // In this case, imageUri is returned by the chooser, save it.
       imageUri = data.getData();
       tryReloadAndDetectInImage();
+
+        Toast.makeText(this, "Processing your image", Toast.LENGTH_LONG).show();
     }
   }
 
@@ -290,9 +295,13 @@ public final class StillImageActivity extends AppCompatActivity {
       preview.setImageBitmap(resizedBitmap);
       bitmapForDetection = resizedBitmap;
 
+      Toast.makeText(this,"doing the thing",Toast.LENGTH_LONG).show();
       imageProcessor.process(bitmapForDetection, graphicOverlay);
+
     } catch (IOException e) {
       Log.e(TAG, "Error retrieving saved image");
+    } catch (FirebaseMLException e) {
+      e.printStackTrace();
     }
   }
 

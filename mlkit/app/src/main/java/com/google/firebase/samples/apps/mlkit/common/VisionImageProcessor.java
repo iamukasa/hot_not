@@ -28,7 +28,7 @@ public interface VisionImageProcessor {
       throws FirebaseMLException;
 
   /** Processes the bitmap images. */
-  void process(Bitmap bitmap, GraphicOverlay graphicOverlay);
+  void process(Bitmap bitmap, GraphicOverlay graphicOverlay) throws FirebaseMLException;
 
   /** Processes the images. */
   void process(Image bitmap, int rotation, GraphicOverlay graphicOverlay);

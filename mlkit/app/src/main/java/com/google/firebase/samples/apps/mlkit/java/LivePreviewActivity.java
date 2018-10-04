@@ -28,6 +28,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.gms.common.annotation.KeepName;
@@ -140,10 +141,14 @@ public final class LivePreviewActivity extends AppCompatActivity
       switch (model) {
         case CLASSIFICATION:
           Log.i(TAG, "Using Custom Image Classifier Processor");
-          cameraSource.setMachineLearningFrameProcessor(new CustomImageClassifierProcessor(this));
+          Toast.makeText(this,"doing the thing",Toast.LENGTH_LONG).show();
+          CustomImageClassifierProcessor a=new CustomImageClassifierProcessor(this);
+          cameraSource.setMachineLearningFrameProcessor(a);
+
           break;
         default:
           Log.e(TAG, "Unknown model: " + model);
+          Toast.makeText(this,"Unknown model:",Toast.LENGTH_LONG).show();
       }
     } catch (FirebaseMLException e) {
       Log.e(TAG, "can not create camera source: " + model);

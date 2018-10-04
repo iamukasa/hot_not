@@ -16,6 +16,7 @@ package com.google.firebase.samples.apps.mlkit.java.custommodel;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.media.Image;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.common.FirebaseMLException;
@@ -52,18 +53,28 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
                 graphicOverlay.clear();
                 graphicOverlay.add(labelGraphic);
                 labelGraphic.updateLabel(result);
+
+
               }
             });
+
   }
 
   @Override
-  public void process(Bitmap bitmap, GraphicOverlay graphicOverlay) {
+  public void process(Bitmap bitmap, final GraphicOverlay graphicOverlay2) throws FirebaseMLException {
+
     // nop
-  }
+    // Create input data.
+
+
+
+    }
 
   @Override
   public void process(Image bitmap, int rotation, GraphicOverlay graphicOverlay) {
     // nop
+
+    
 
   }
 
